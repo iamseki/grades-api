@@ -1,0 +1,23 @@
+name: Automated Tests and Linting
+
+on:
+  pull_request:
+    branches: [ dev ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "test"
+  lint_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install dependencies
+      run: yarn
+    - name: Typescript Checks
+      run: yarn lint
+    - name: Run tests
+      run: yarn test
