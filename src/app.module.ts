@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { CollegeModule } from './college/college.module';
-import { MongooseModule } from '@nestjs/mongoose';
-
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/grades';
+import { CollegeModule } from './modules/college/college.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { config } from './database/typeorm';
 
 @Module({
-  imports: [MongooseModule.forRoot(MONGO_URI), CollegeModule],
+  imports: [TypeOrmModule.forRoot(config), CollegeModule],
 })
 export class AppModule { }
