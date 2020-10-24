@@ -2,22 +2,23 @@ import { ConnectionOptions } from 'typeorm';
 
 const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_DATABASE } = process.env;
 
-// Check typeORM documentation for more information.
-export const config: ConnectionOptions = {
+const config: ConnectionOptions = {
   type: 'postgres',
   host: DB_HOST,
   port: Number(DB_PORT),
   username: DB_USERNAME,
   password: DB_PASSWORD,
   database: DB_DATABASE || 'grades-api',
-  entities: [__dirname + '/**/*.entity{.ts,.js}'],
+  entities: [__dirname + '/modules/**/*.entity{.ts,.js}'],
 
   // We are using migrations, synchronize should be set to false.
   synchronize: false,
 
-  // Run migrations automatically,
+  // Do not run migrations automatically,
   // you can disable this if you prefer running migration manually.
-  // migrationsRun: true,
+  migrationsRun: false,
+
+  // A file named ormlogs.log will be generated in the root folder.
   logging: true,
   logger: 'file',
 
@@ -32,3 +33,8 @@ export const config: ConnectionOptions = {
   },
 };
 
+// If you need to debug typeorm cli you can do it here
+// console.log(config.migrations)
+// console.log(config.cli)
+
+export = config;
