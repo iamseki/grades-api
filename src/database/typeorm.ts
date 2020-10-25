@@ -9,7 +9,7 @@ const config: ConnectionOptions = {
   username: DB_USERNAME,
   password: DB_PASSWORD,
   database: DB_DATABASE || 'grades-api',
-  entities: [__dirname + '/modules/**/*.entity{.ts,.js}'],
+  entities: ['dist/modules/**/entities/*.entity{.ts,.js}'],
 
   // We are using migrations, synchronize should be set to false.
   synchronize: false,
@@ -35,6 +35,6 @@ const config: ConnectionOptions = {
 
 // If you need to debug typeorm cli you can do it here
 // console.log(config.migrations)
-// console.log(config.cli)
+console.log(config.entities)
 
 export = config;
