@@ -11,11 +11,12 @@ export class CountryService {
     private readonly countriesRepository: Repository<Country>,
   ) { }
 
-  public async create({ name, abbreviation }: CreateCountryDTO): Promise<void> {
+  public async create({ name, abbreviation }: CreateCountryDTO): Promise<Country> {
     //  if (!name || !abbreviation) throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST)
     await this.validateUniqueConstraints({ name, abbreviation })
 
-    await this.countriesRepository.save({ name, abbreviation })
+    const country = await this.countriesRepository.save({ name, abbreviation })
+    return country
   }
   private async validateUniqueConstraints({ name, abbreviation }: CreateCountryDTO) {
     const countryExists = await this.countriesRepository.findOne({ where: { name } })
