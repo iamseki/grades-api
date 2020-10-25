@@ -11,6 +11,11 @@ export class CountryService {
     private readonly countriesRepository: Repository<Country>,
   ) { }
 
+  public async list(): Promise<Country[]> {
+    const countries = await this.countriesRepository.find({ select: ['name', 'abbreviation'] });
+    return countries;
+  }
+
   public async create({ name, abbreviation }: CreateCountryDTO): Promise<Country> {
     //  if (!name || !abbreviation) throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST)
     await this.validateUniqueConstraints({ name, abbreviation })

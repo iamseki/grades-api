@@ -6,15 +6,17 @@ import { HttpException } from '@nestjs/common';
 
 describe('Country Service', () => {
   let countryService: CountryService;
+  let find: jest.Mock;
   let findOne: jest.Mock;
   let save: jest.Mock;
 
   beforeEach(async () => {
     findOne = jest.fn();
     save = jest.fn();
+    find = jest.fn();
     const module: TestingModule = await Test.createTestingModule({
       providers: [CountryService, {
-        provide: getRepositoryToken(Country), useValue: { findOne, save },
+        provide: getRepositoryToken(Country), useValue: { findOne, save, find },
       }],
     }).compile();
 
@@ -68,6 +70,37 @@ describe('Country Service', () => {
     expect(mockedCountry.id).toEqual(country.id)
     expect(mockedCountry.name).toEqual(country.name)
     expect(mockedCountry.abbreviation).toEqual(country.abbreviation)
+  });
+
+  it('It should be able to list available countries', async () => {
+
+    const country1 = new Country();
+
+    country1.id = "4ee5a86c-a65e-456e-a839-c3374375cb6a"
+    country1.name = "testing";
+    country1.abbreviation = "ts";
+
+    const country2 = new Country();
+
+    country2.id = "4ee5a86c-a65e-456e-a839-c3374375cb6b"
+    country2.name = "testing2";
+    country2.abbreviation = "ts2";
+
+    const countries = [country1, country2];
+
+    find.mockReturnValue(Promise.resolve(countries));
+
+    const mockedCountries = await countryService.list();
+
+    expect(mockedCountries.length).toEqual(2);
+    expect(mockedCountries[0]).toHaveProperty('name');
+    expect(mockedCountries[0]).toHaveProperty('abbreviation');
+    expect(mockedCountries[0].name).toEqual('testing');
+
+
+    expect(mockedCountries[1]).toHaveProperty('name');
+    expect(mockedCountries[1]).toHaveProperty('abbreviation');
+    expect(mockedCountries[1].abbreviation).toEqual('ts2');
   });
 
 });
