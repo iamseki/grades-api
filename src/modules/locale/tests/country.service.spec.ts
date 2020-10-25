@@ -43,6 +43,7 @@ describe('Country Service', () => {
     country.name = "testing";
     country.abbreviation = "ts";
 
+    findOne.mockReturnValue(Promise.resolve(undefined)) // the first findOne must be undefined cause name doesn't exists yet
     findOne.mockReturnValue(Promise.resolve(country))
 
     await expect(
