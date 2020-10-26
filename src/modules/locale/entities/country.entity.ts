@@ -12,6 +12,9 @@ export class Country {
   @Column()
   abbreviation: string;
 
-  @OneToMany(() => State, state => state.country)
-  states: State[]
+  @OneToMany(
+    () => State,
+    state => state.country,
+  )
+  states: State[];
 }

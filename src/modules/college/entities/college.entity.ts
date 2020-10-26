@@ -1,6 +1,12 @@
-import { PrimaryGeneratedColumn, Entity, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from "typeorm";
-import { Country } from "src/modules/locale/entities/country.entity";
-
+import {
+  PrimaryGeneratedColumn,
+  Entity,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+} from 'typeorm';
+import { Country } from 'src/modules/locale/entities/country.entity';
 
 @Entity('colleges')
 export class College {
@@ -11,7 +17,7 @@ export class College {
   countryId: string;
 
   @ManyToOne(() => Country)
-  country: Country
+  country: Country;
 
   @Column()
   name: string;
@@ -19,7 +25,7 @@ export class College {
   @Column()
   shortName: string;
 
-  @Column({ default: "N/A" })
+  @Column({ default: 'N/A' })
   gradesSystem: string;
 
   @Column()

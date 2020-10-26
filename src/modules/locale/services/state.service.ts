@@ -11,17 +11,26 @@ export class StateService {
     @InjectRepository(Country)
     private readonly countriesRepository: Repository<Country>,
     @InjectRepository(State)
-    private readonly statesRepository: Repository<State>
-  ) { }
+    private readonly statesRepository: Repository<State>,
+  ) {}
 
-  public async createMany({ countryName, countryId, countryAbbreviation, states }: CreateStatesDTO): Promise<void> {
-    if (!countryName && !countryId && !countryAbbreviation) throw new HttpException('Some country information should be provided', HttpStatus.BAD_REQUEST)
+  public async createMany({
+    countryName,
+    countryId,
+    countryAbbreviation,
+    states,
+  }: CreateStatesDTO): Promise<void> {
+    if (!countryName && !countryId && !countryAbbreviation)
+      throw new HttpException(
+        'Some country information should be provided',
+        HttpStatus.BAD_REQUEST,
+      );
     const country = await this.findCountry(countryName, countryId, countryAbbreviation);
 
     const statesArr: State[] = [];
 
     states.forEach(state => {
-      statesArr.push({ name: state.name, abbreviation: state.abbreviation, countryId: country.id })
+      statesArr.push({ name: state.name, abbreviation: state.abbreviation, countryId: country.id });
     });
 
     const connection = getConnection();
@@ -35,17 +44,17 @@ export class StateService {
       await this.statesRepository.insert(statesArr);
       // commit transaction now:
       await queryRunner.commitTransaction();
-    }
-    catch (e) {
+    } catch (e) {
       await queryRunner.rollbackTransaction();
-    }
-    finally {
+    } finally {
       await queryRunner.release();
     }
   }
 
   private async findCountry(name: string, id: string, abbreviation: string): Promise<Country> {
-    const country = await this.countriesRepository.findOne({ where: [{ name }, { abbreviation }, { id }] });
+    const country = await this.countriesRepository.findOne({
+      where: [{ name }, { abbreviation }, { id }],
+    });
     return country;
   }
 }

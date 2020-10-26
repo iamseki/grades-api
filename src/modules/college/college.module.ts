@@ -7,4 +7,4 @@ import { Subject } from './entities/subject.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([College, Course, Subject])],
 })
-export class CollegeModule { }
+export class CollegeModule {}

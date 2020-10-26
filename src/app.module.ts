@@ -7,4 +7,4 @@ import * as ormconfig from './database/typeorm';
 @Module({
   imports: [TypeOrmModule.forRoot(ormconfig), CollegeModule, LocaleModule],
 })
-export class AppModule { }
+export class AppModule {}

@@ -10,6 +10,6 @@ import { StateService } from './services/state.service';
 @Module({
   imports: [TypeOrmModule.forFeature([Country, State])],
   providers: [CountryService, StateService],
-  controllers: [CountryController, StateController]
+  controllers: [CountryController, StateController],
 })
-export class LocaleModule { }
+export class LocaleModule {}

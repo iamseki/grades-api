@@ -15,6 +15,9 @@ export class State {
   @Column()
   abbreviation: string;
 
-  @ManyToOne(() => Country, country => country.states)
+  @ManyToOne(
+    () => Country,
+    country => country.states,
+  )
   country?: Country;
 }
