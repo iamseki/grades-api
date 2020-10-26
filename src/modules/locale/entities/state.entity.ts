@@ -4,7 +4,7 @@ import { Country } from './country.entity';
 @Entity('states')
 export class State {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @Column('uuid')
   countryId: string;
@@ -16,5 +16,5 @@ export class State {
   abbreviation: string;
 
   @ManyToOne(() => Country, country => country.states)
-  country: Country;
+  country?: Country;
 }
