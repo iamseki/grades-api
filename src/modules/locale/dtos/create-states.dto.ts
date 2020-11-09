@@ -4,15 +4,15 @@ import { Type } from 'class-transformer';
 export class CreateStatesDTO {
   @IsOptional()
   @IsNotEmpty()
-  countryId: string;
+  countryId?: string;
 
   @IsOptional()
   @IsNotEmpty()
-  countryName: string;
+  countryName?: string;
 
   @IsOptional()
   @IsNotEmpty()
-  countryAbbreviation: string;
+  countryAbbreviation?: string;
 
   @ValidateNested({ each: true })
   @IsArray()
