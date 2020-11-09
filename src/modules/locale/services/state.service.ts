@@ -12,7 +12,7 @@ export class StateService {
     private readonly countriesRepository: Repository<Country>,
     @InjectRepository(State)
     private readonly statesRepository: Repository<State>,
-  ) {}
+  ) { }
 
   public async createMany({
     countryName,
@@ -25,6 +25,7 @@ export class StateService {
         'Some country information should be provided',
         HttpStatus.BAD_REQUEST,
       );
+    // country must exist  
     const country = await this.findCountry(countryName, countryId, countryAbbreviation);
 
     const statesArr: State[] = [];
@@ -33,15 +34,19 @@ export class StateService {
       statesArr.push({ name: state.name, abbreviation: state.abbreviation, countryId: country.id });
     });
 
+    await this.insertTransaction(statesArr);
+  }
+
+  private async insertTransaction(states: State[]): Promise<void> {
     const connection = getConnection();
     const queryRunner = connection.createQueryRunner();
 
     try {
-      // establish real database connection using our new query runner
+      // stablish real database connection using our new query runner
       await queryRunner.connect();
       await queryRunner.startTransaction();
 
-      await this.statesRepository.insert(statesArr);
+      await this.statesRepository.insert(states);
       // commit transaction now:
       await queryRunner.commitTransaction();
     } catch (e) {
@@ -55,6 +60,9 @@ export class StateService {
     const country = await this.countriesRepository.findOne({
       where: [{ name }, { abbreviation }, { id }],
     });
+
+    if (!country) throw new HttpException('Country provided doesn\'t exist', HttpStatus.NOT_FOUND)
+
     return country;
   }
 }
