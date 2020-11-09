@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { State } from './state.entity';
 
-@Entity('entities')
+@Entity('countries')
 export class Country {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -12,6 +12,9 @@ export class Country {
   @Column()
   abbreviation: string;
 
-  @OneToMany(() => State, state => state.country)
-  states: State[]
+  @OneToMany(
+    () => State,
+    state => state.country,
+  )
+  states: State[];
 }
