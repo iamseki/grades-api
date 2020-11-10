@@ -15,7 +15,11 @@ export class CollegeService {
   ){}
 
   public async list(): Promise<College[]> {
-    const colleges = await this.collegeRepository.find({ select: [ "name", "shortName","country", "gradesSystem", "gradesAverage" ]})
+    const colleges = await this.collegeRepository.createQueryBuilder('c')
+    .leftJoinAndSelect('c.country','country')
+    .select(['c.name','c.shortName', 'c.gradesSystem', 'c.gradesAverage', 'country.name', 'country.abbreviation'])
+    .getMany();
+    
     return colleges;
   }
 
