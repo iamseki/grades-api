@@ -6,10 +6,11 @@ import { Course } from './entities/course.entity';
 import { Subject } from './entities/subject.entity';
 import { Country } from '../locale/entities/country.entity';
 import { CollegeService } from './services/college.service';
+import { CourseService } from './services/course.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([College, Course, Subject, Country])],
-  providers: [CollegeService],
+  providers: [CollegeService, CourseService],
   controllers: [CollegeController]
 })
 export class CollegeModule {}

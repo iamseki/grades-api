@@ -7,12 +7,12 @@ export class CreateCourseSubjectTable1603552604235 implements MigrationInterface
         name: 'courses_subjects',
         columns: [
           {
-            name: 'subjectId',
+            name: 'subjectsId',
             type: 'uuid',
             isPrimary: true,
           },
           {
-            name: 'courseId',
+            name: 'coursesId',
             type: 'uuid',
             isPrimary: true,
           },
@@ -23,7 +23,7 @@ export class CreateCourseSubjectTable1603552604235 implements MigrationInterface
     await queryRunner.createForeignKey(
       'courses_subjects',
       new TableForeignKey({
-        columnNames: ['subjectId'],
+        columnNames: ['subjectsId'],
         referencedColumnNames: ['id'],
         referencedTableName: 'subjects',
         onDelete: 'CASCADE',
@@ -33,7 +33,7 @@ export class CreateCourseSubjectTable1603552604235 implements MigrationInterface
     await queryRunner.createForeignKey(
       'courses_subjects',
       new TableForeignKey({
-        columnNames: ['courseId'],
+        columnNames: ['coursesId'],
         referencedColumnNames: ['id'],
         referencedTableName: 'courses',
       }),
@@ -43,10 +43,10 @@ export class CreateCourseSubjectTable1603552604235 implements MigrationInterface
   public async down(queryRunner: QueryRunner): Promise<void> {
     const table = await queryRunner.getTable('courses_subjects');
 
-    let foreignKey = table.foreignKeys.find(fk => fk.columnNames.indexOf('courseId') !== -1);
+    let foreignKey = table.foreignKeys.find(fk => fk.columnNames.indexOf('coursesId') !== -1);
     table.removeForeignKey(foreignKey);
 
-    foreignKey = table.foreignKeys.find(fk => fk.columnNames.indexOf('subjectId') !== -1);
+    foreignKey = table.foreignKeys.find(fk => fk.columnNames.indexOf('subjectsId') !== -1);
     table.removeForeignKey(foreignKey);
 
     await queryRunner.dropTable('courses_subjects');

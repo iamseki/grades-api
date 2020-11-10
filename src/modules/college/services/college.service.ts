@@ -41,10 +41,11 @@ export class CollegeService {
       return college;
     }
     // if countryId were'nt provided it's necessary to query country Id
-    const { id } = await this.countryRepository.findOne({where: [{ name: countryName }, {abbreviation: countryAbbreviation}], select: ["id"]});
+    const country = await this.countryRepository.findOne({where: [{ name: countryName }, {abbreviation: countryAbbreviation}], select: ["id"]});
+    if (!country) throw new HttpException('Country provided doesn\'t exist', HttpStatus.NOT_FOUND);
     
     const college = await this.collegeRepository.save({
-      countryId: id,
+      countryId: country.id,
       name,
       shortName,
       gradesSystem,
