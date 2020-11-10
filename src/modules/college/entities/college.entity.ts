@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
 } from 'typeorm';
-import { Country } from 'src/modules/locale/entities/country.entity';
+import { Country } from '../../locale/entities/country.entity';
 
 @Entity('colleges')
 export class College {
