@@ -52,6 +52,17 @@ type Subject struct {
 	ShortName string `json:"shortName"`
 }
 
+// CoursesSeedObj bla
+type CoursesSeedObj struct {
+	Courses []Course `json:"courses"`
+}
+
+// Course ble
+type Course struct {
+	Name      string `json:"name"`
+	ShortName string `json:"shortName"`
+}
+
 func (s *seed) Execute(table string) {
 	db, err := sql.Open("postgres", os.Getenv("POSTGRES_URL"))
 	if err != nil {
@@ -71,10 +82,43 @@ func (s *seed) Execute(table string) {
 
 		s.seedCountries()
 		s.seedColleges()
+		s.seedCourses()
 
 		wg.Wait()
 		log.Printf("Finished seed in all tables\n")
 	}
+}
+
+func (s *seed) seedCourses() {
+	log.Println("Seeding courses table..")
+
+	file := readFileInDatabaseFolder("courses_seed.json")
+	data := CoursesSeedObj{}
+	err := json.Unmarshal([]byte(file), &data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	sqlStatement := `SELECT id FROM colleges WHERE "shortName" like 'FTT'`
+	rs := s.database.QueryRow(sqlStatement)
+
+	var id string
+	rs.Scan(&id)
+
+	sqlStatement = `
+	INSERT INTO courses("collegeId",name,"shortName")
+	VALUES
+	`
+
+	for i, c := range data.Courses {
+		if i != len(data.Courses)-1 {
+			sqlStatement += "('" + id + "','" + c.Name + "','" + c.ShortName + "'),"
+		} else {
+			// avoiding comma ',' in final line
+			sqlStatement += "('" + id + "','" + c.Name + "','" + c.ShortName + "') ON CONFLICT DO NOTHING"
+		}
+	}
+
+	s.executeQuery(sqlStatement)
 }
 
 func (s *seed) seedSubjects(wg *sync.WaitGroup) {

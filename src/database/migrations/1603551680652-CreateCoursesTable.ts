@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableForeignKey, TableUnique } from 'typeorm';
 
 export class CreateCoursesTable1603551680652 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -32,6 +32,11 @@ export class CreateCoursesTable1603551680652 implements MigrationInterface {
       }),
     );
 
+    await queryRunner.createUniqueConstraint('courses', new TableUnique({
+      name: 'unq_group_courses',
+      columnNames: ['collegeId', 'name', 'shortName']
+    }))
+
     await queryRunner.createForeignKey(
       'courses',
       new TableForeignKey({
@@ -47,8 +52,10 @@ export class CreateCoursesTable1603551680652 implements MigrationInterface {
     const table = await queryRunner.getTable('courses');
 
     const foreignKey = table.foreignKeys.find(fk => fk.columnNames.indexOf('collegeId') !== -1);
+    const constraint = table.uniques.find( un => un.name === 'unq_group_courses');
 
     table.removeForeignKey(foreignKey);
+    table.removeUniqueConstraint(constraint);
 
     await queryRunner.dropTable('courses');
   }
