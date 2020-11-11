@@ -6,11 +6,14 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strconv"
+	"sync"
 
 	_ "github.com/lib/pq"
 )
 
 type seed struct {
+	database *sql.DB
 }
 
 // CountrySeedObj bla
@@ -24,37 +27,126 @@ type Country struct {
 	Abbreviation string `json:"abbreviation"`
 }
 
+// CollegeSeedObj bla
+type CollegeSeedObj struct {
+	Colleges []College `json:"colleges"`
+}
+
+// College ble
+type College struct {
+	CountryName   string `json:"countryName"`
+	Name          string `json:"name"`
+	ShortName     string `json:"shortName"`
+	GradesSystem  string `json:"gradesSystem"`
+	GradesAverage int    `json:"gradesAverage"`
+}
+
+// SubjectsSeedObj bla
+type SubjectsSeedObj struct {
+	Subjects []Subject `json:"subjects"`
+}
+
+// Subject ble
+type Subject struct {
+	Name      string `json:"name"`
+	ShortName string `json:"shortName"`
+}
+
 func (s *seed) Execute(table string) {
 	db, err := sql.Open("postgres", os.Getenv("POSTGRES_URL"))
 	if err != nil {
 		log.Fatal(err)
 	}
+	s.database = db
 	defer db.Close()
 
+	var wg sync.WaitGroup
 	// check if the passed table had some data
 	// if table = none seed all stuff
 	if table == "none" {
 		log.Printf("Executing seed in all tables\n")
 
-		mainPath, err := os.Getwd()
-		if err != nil {
-			log.Fatal(err)
-		}
+		wg.Add(1)
+		go s.seedSubjects(&wg)
 
-		s.seedCountries(db, mainPath)
+		s.seedCountries()
+		s.seedColleges()
 
+		wg.Wait()
 		log.Printf("Finished seed in all tables\n")
 	}
 }
 
-func (s *seed) seedCountries(db *sql.DB, fileJSONPath string) {
-	file, err := ioutil.ReadFile(fileJSONPath + "/database/countries_seed.json")
+func (s *seed) seedSubjects(wg *sync.WaitGroup) {
+	defer wg.Done()
+	log.Println("Seeding subjects table..")
+
+	file := readFileInDatabaseFolder("subjects_seed.json")
+	data := SubjectsSeedObj{}
+	err := json.Unmarshal([]byte(file), &data)
 	if err != nil {
 		log.Fatal(err)
 	}
-	data := CountrySeedObj{}
 
-	_ = json.Unmarshal([]byte(file), &data)
+	sqlStatement := `
+		INSERT INTO subjects(name,"shortName")
+		VALUES
+		`
+
+	for i, sub := range data.Subjects {
+		if i != len(data.Subjects)-1 {
+			sqlStatement += "('" + sub.Name + "','" + sub.ShortName + "'),"
+		} else {
+			// avoiding comma ',' in final line
+			sqlStatement += "('" + sub.Name + "','" + sub.ShortName + "') ON CONFLICT DO NOTHING"
+		}
+	}
+
+	s.executeQuery(sqlStatement)
+}
+
+// For now just seed colleges from Brazil
+func (s *seed) seedColleges() {
+	log.Println("Seeding colleges table..")
+
+	file := readFileInDatabaseFolder("colleges_seed.json")
+	data := CollegeSeedObj{}
+	err := json.Unmarshal([]byte(file), &data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sqlStatement := "SELECT id FROM countries WHERE name like 'Brazil'"
+	rs := s.database.QueryRow(sqlStatement)
+
+	var id string
+	rs.Scan(&id)
+
+	sqlStatement = `
+	INSERT INTO colleges("countryId",name,"shortName","gradesSystem","gradesAverage")
+	VALUES
+	`
+
+	for i, c := range data.Colleges {
+		if i != len(data.Colleges)-1 {
+			sqlStatement += "('" + id + "','" + c.Name + "','" + c.ShortName + "','" + c.GradesSystem + "'," + strconv.Itoa(c.GradesAverage) + "),"
+		} else {
+			// avoiding comma ',' in final line
+			sqlStatement += "('" + id + "','" + c.Name + "','" + c.ShortName + "','" + c.GradesSystem + "'," + strconv.Itoa(c.GradesAverage) + ") ON CONFLICT DO NOTHING"
+		}
+	}
+
+	s.executeQuery(sqlStatement)
+}
+
+func (s *seed) seedCountries() {
+	log.Println("Seeding countries table...")
+	file := readFileInDatabaseFolder("countries_seed.json")
+	data := CountrySeedObj{}
+	err := json.Unmarshal([]byte(file), &data)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	sqlStatement := `
 		INSERT INTO countries(name,abbreviation)
@@ -70,10 +162,28 @@ func (s *seed) seedCountries(db *sql.DB, fileJSONPath string) {
 		}
 	}
 
-	_, err = db.Exec(sqlStatement)
+	s.executeQuery(sqlStatement)
+}
+
+func (s *seed) executeQuery(query string) {
+	_, err := s.database.Exec(query)
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func readFileInDatabaseFolder(filename string) []byte {
+	mainPath, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	file, err := ioutil.ReadFile(mainPath + "/database/" + filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return file
 }
 
 func newSeed() Database {

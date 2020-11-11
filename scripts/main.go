@@ -18,6 +18,7 @@ func main() {
 	flag.Parse()
 
 	// execute seed script if running with -seed -table=name
+	// go run main.go -seed will populate all .json availables
 	if boolSeed {
 		wg.Add(1)
 		go func(wg *sync.WaitGroup) {
