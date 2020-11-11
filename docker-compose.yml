@@ -1,0 +1,34 @@
+version: "3"
+services:
+  grades-pg:
+    image: postgres:alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: grades-api
+      POSTGRES_PASSWORD: admin
+  grades-scripts:
+    build:
+      context: ./scripts
+      dockerfile: Dockerfile
+    image: grades-scripts
+    command: -seed -delay=30
+    environment:
+      POSTGRES_URL: postgres://postgres:admin@grades-pg:5432/grades-api?sslmode=disable
+    depends_on:
+      - grades-pg
+  grades-api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: grades-api
+    ports:
+      - 8080:8080
+    environment:
+      DB_USERNAME: postgres
+      DB_PASSWORD: admin
+      DB_DATABASE: grades-api
+      DB_HOST: grades-pg
+      DB_PORT: 5432
+    depends_on:
+      - grades-pg     
