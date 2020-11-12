@@ -23,7 +23,10 @@ func runMigrationCMD() error {
 		"yarn", "typeorm:script-migration")
 	var out bytes.Buffer
 	cmd.Stdout = &out
+
 	err := cmd.Run()
+
+	log.Println(out.String())
 
 	return err
 }
