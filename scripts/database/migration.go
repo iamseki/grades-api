@@ -1,7 +1,6 @@
 package database
 
 import (
-	"bytes"
 	"log"
 	"os"
 	"os/exec"
@@ -12,21 +11,24 @@ type migration struct {
 
 func (m *migration) Execute(table string) {
 	if table == "none" {
-		log.Println("Running migrations..")
-		runMigrationCMD()
-		log.Println("Finished migrations...")
+		log.Println("Running script migrations..")
+		err := runMigrationCMD()
+		if err != nil {
+			log.Fatalln(err)
+		}
+		log.Println("Finished script migrations...")
 	}
 }
 
 func runMigrationCMD() error {
-	cmd := exec.Command("cd", os.Getenv("APP_DIR"), "&&",
-		"yarn", "typeorm:script-migration")
-	var out bytes.Buffer
-	cmd.Stdout = &out
+	os.Chdir(os.Getenv("APP_DIR"))
+	cmd := exec.Command("yarn", "typeorm:script-migration")
 
-	err := cmd.Run()
+	out, err := cmd.CombinedOutput()
 
-	log.Println(out.String())
+	//err := cmd.Run()
+
+	log.Println(string(out))
 
 	return err
 }
