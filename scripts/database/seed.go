@@ -217,12 +217,12 @@ func (s *seed) executeQuery(query string) {
 }
 
 func readFileInDatabaseFolder(filename string) []byte {
-	mainPath, err := os.Getwd()
-	if err != nil {
+	mainPath := os.Getenv("APP_DIR")
+	/*if err != nil {
 		log.Fatal(err)
-	}
+	}*/
 
-	file, err := ioutil.ReadFile(mainPath + "/database/" + filename)
+	file, err := ioutil.ReadFile(mainPath + "scripts/database/" + filename)
 	if err != nil {
 		log.Fatal(err)
 	}

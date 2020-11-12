@@ -10,11 +10,13 @@ import (
 
 func main() {
 	var boolSeed bool
+	var boolMigration bool
 	var table string
 	var delay int
 	var wg sync.WaitGroup
 
 	flag.BoolVar(&boolSeed, "seed", false, "Execute seed script if flag is passed e.g(-seed)")
+	flag.BoolVar(&boolMigration, "migration", false, "Execute migration script if flag is passed e.g(-migration)")
 	flag.StringVar(&table, "table", "none", "Table passed to execute query")
 	flag.IntVar(&delay, "delay", 1, "Delay to wait to start the go program")
 
@@ -28,6 +30,14 @@ func main() {
 		go func(wg *sync.WaitGroup) {
 			seed := database.Factory(database.GetSeed)
 			seed.Execute(table)
+			wg.Done()
+		}(&wg)
+	}
+	if boolMigration {
+		wg.Add(1)
+		go func(wg *sync.WaitGroup) {
+			migration := database.Factory(database.GetMigration)
+			migration.Execute(table)
 			wg.Done()
 		}(&wg)
 	}

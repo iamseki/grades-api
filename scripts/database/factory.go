@@ -9,8 +9,9 @@ type factoryType string
 
 // bla
 const (
-	GetSeed  factoryType = "seed"
-	GetOther             = "other"
+	GetSeed      factoryType = "seed"
+	GetOther                 = "other"
+	GetMigration             = "migration"
 )
 
 // Factory of Database Package
@@ -20,6 +21,8 @@ func Factory(executor factoryType) Database {
 		return newSeed()
 	case GetOther:
 		return newSeed()
+	case GetMigration:
+		return newMigration()
 	default:
 		return newSeed()
 	}
