@@ -22,11 +22,13 @@ export class CreateCollegeTable1603550578917 implements MigrationInterface {
             name: 'name',
             type: 'varchar',
             isNullable: false,
+            isUnique: true
           },
           {
             name: 'shortName',
             type: 'varchar',
             isNullable: false,
+            isUnique: true
           },
           {
             name: 'gradesSystem',

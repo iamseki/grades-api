@@ -1,0 +1,239 @@
+{
+	"subjects": [
+		{
+			"name": "CÁLCULO DIFERENCIAL E INTEGRAL I",
+			"shortName": "CDF 1"
+		},
+		{
+			"name": "ÁLGEBRA LINEAR E GEOMETRIA ANALÍTICA",
+			"shortName": "AG"
+    },
+    {
+			"name": "FISICA GERAL E EXPERIMENTAL I",
+			"shortName": "FGE 1"
+    },
+    {
+			"name": "QUÍMICA GERAL E TECNOLÓGICA",
+			"shortName": "QGT"
+    },
+    {
+			"name": "INTRODUÇÃO À ENGENHARIA DE COMPUTAÇÃO",
+			"shortName": "IEC 1"
+    },
+    {
+			"name": "FISICA GERAL E EXPERIMENTAL I",
+			"shortName": "FGE 1"
+    },
+    {
+			"name": "SISTEMAS DE INFORMAÇÃO",
+			"shortName": "SI"
+    },
+    {
+			"name": "ALGORITMOS I",
+			"shortName": "ALG 1"
+    },
+    {
+			"name": "CÁLCULO DIFERENCIAL E INTEGRAL II",
+			"shortName": "CDI 2"
+    },
+    {
+			"name": "FISICA GERAL E EXPERIMENTAL II",
+			"shortName": "FGE 2"
+    },
+    {
+			"name": "DESENHO TÉCNICO + CAD",
+			"shortName": "CAD"
+    },
+    {
+			"name": "ELETRICIDADE APLICADA",
+			"shortName": "ELE"
+    },
+    {
+			"name": "CÁLCULO NUMÉRICO",
+			"shortName": "CN"
+    },
+    {
+			"name": "DESENHO TÉCNICO + CAD",
+			"shortName": "CAD"
+    },
+    {
+			"name": "ALGORITMOS II",
+			"shortName": "ALG 2"
+    },
+    {
+			"name": "FISICA GERAL E EXPERIMENTAL III",
+			"shortName": "FGE 3"
+    },
+    {
+			"name": "MECÂNICA GERAL",
+			"shortName": "MG"
+    },
+    {
+			"name": "PROBABILIDADE E ESTATÍSTICA",
+			"shortName": "PBE"
+    },
+    {
+			"name": "ELETRÔNICA ANALÓGICA",
+			"shortName": "ELA"
+    },
+    {
+			"name": "PROGRAMAÇÃO ORIENTADA A OBJETOS",
+			"shortName": "POO"
+    },
+    {
+			"name": "ESTRUTURA DE DADOS",
+			"shortName": "EDD"
+    },
+    {
+			"name": "ÉTICA E CIDADANIA",
+			"shortName": "ECD"
+    },
+    {
+			"name": "CIÊNCIA DOS MATERIAIS",
+			"shortName": "CDM"
+    },
+    {
+			"name": "ELETRÔNICA DIGITAL",
+			"shortName": "ELD"
+    },
+    {
+			"name": "ADMINISTRAÇÃO PARA ENGENHARIA",
+			"shortName": "ADM"
+    },
+    {
+			"name": "LINGUAGENS FORMAIS E AUTÔMATOS",
+			"shortName": "LFA"
+    },
+    {
+			"name": "CIÊNCIA DOS MATERIAIS",
+			"shortName": "CDM"
+    },
+    {
+			"name": "BANCO DE DADOS I",
+			"shortName": "BD 1"
+    },
+    {
+			"name": "FENÔMENOS DE TRANSPORTE",
+			"shortName": "FDT"
+    },
+    {
+			"name": "CIÊNCIA DOS MATERIAIS",
+			"shortName": "CDM"
+    },
+    {
+			"name": "SISTEMAS DIGITAIS E MICROCONTROLADORES",
+			"shortName": "SDM"
+    },
+    {
+			"name": "GESTÃO DE PROJETOS NA ENGENHARIA DE COMPUTAÇÃO",
+			"shortName": "GEC"
+    },
+    {
+			"name": "BANCO DE DADOS II",
+			"shortName": "BD 2"
+    },
+    {
+			"name": "LINGUAGEM DE PROGRAMAÇÃO I",
+			"shortName": "LP 1"
+    },
+    {
+			"name": "ECONOMIA",
+			"shortName": "ECO"
+    },
+    {
+			"name": "CONTABILIDADE E CUSTOS",
+			"shortName": "CEC"
+    },
+    {
+			"name": "ENGENHARIA DE SOFTWARE I",
+			"shortName": "ES 1"
+    },
+    {
+			"name": "CONTROLE E AUTOMAÇÃO",
+			"shortName": "CEA"
+    },
+    {
+			"name": "COMPILADORES",
+			"shortName": "CMP"
+    },
+    {
+			"name": "LINGUAGEM DE PROGRAMAÇÃO II",
+			"shortName": "LP 2"
+    },
+    {
+			"name": "CIÊNCIA DOS MATERIAIS",
+			"shortName": "CDM"
+    },
+    {
+			"name": "GESTÃO DA QUALIDADE",
+			"shortName": "GDQ"
+    },
+    {
+			"name": "COMUNICAÇÃO E MIDIAS DIGITAIS ",
+			"shortName": "CMD"
+    },
+    {
+			"name": "ENGENHARIA DE SOFTWARE II",
+			"shortName": "ES 2"
+    },
+    {
+			"name": "COMUNICAÇÃO DE DADOS",
+			"shortName": "CDD"
+    },
+    {
+			"name": "ARQUITETURA DE COMPUTADORES I",
+			"shortName": "AQC 1"
+    },
+    {
+			"name": "LINGUAGEM DE PROGRAMAÇÃO III ",
+			"shortName": "LP 3"
+    },
+    {
+			"name": "ARQUITETURA DE COMPUTADORES I",
+			"shortName": "AQC 1"
+    },
+    {
+			"name": "QUALIDADE DE SOFTWARE",
+			"shortName": "QDS"
+    },
+    {
+			"name": "REDE DE COMPUTADORES ",
+			"shortName": "RDC"
+    },
+    {
+			"name": "SISTEMAS OPERACIONAIS",
+			"shortName": "SO"
+    },
+    {
+			"name": "ARQUITETURA DE COMPUTADORES II",
+			"shortName": "AQC 2"
+    },
+    {
+			"name": "LINGUAGEM DE PROGRAMAÇÃO IV",
+			"shortName": "LP 4"
+    },
+    {
+			"name": "GESTÃO EMPREENDEDORA",
+			"shortName": "GE"
+    },
+    {
+			"name": "GESTÃO DA TECNOLOGIA DA INFORMAÇÃO",
+			"shortName": "GTI"
+    },
+    {
+			"name": "SERVIÇOS DE REDE",
+			"shortName": "SDR"
+    },
+    {
+			"name": "INTELIGÊNCIA ARTIFICIAL",
+			"shortName": "IA"
+    },
+    {
+			"name": "SISTEMAS DISTRIBUÍDOS",
+			"shortName": "SD"
+    },
+    {
+			"name": "TRABALHO DE CONCLUSÃO DE CURSO I",
+			"shortName": "TCC 1"
+    }]
+}
