@@ -34,7 +34,7 @@
     },
     {
 			"name": "CÁLCULO DIFERENCIAL E INTEGRAL II",
-			"shortName": "CDI 2"
+			"shortName": "CDF 2"
     },
     {
 			"name": "FISICA GERAL E EXPERIMENTAL II",
@@ -235,5 +235,518 @@
     {
 			"name": "TRABALHO DE CONCLUSÃO DE CURSO I",
 			"shortName": "TCC 1"
-    }]
+		},
+		{
+			"name": "CIÊNCIAS DO AMBIENTE E DESENVOLVIMENTO SUSTENTÁVEL",
+			"shortName": "CADS"
+		},
+		{
+			"name": "DIREITO DIGITAL",
+			"shortName": "DD"
+		},
+		{
+			"name": "GESTÃO ESTRATÉGICA DA INFORMAÇÃO",
+			"shortName": "GEI"
+		},
+		{
+			"name": "PROGRAMAÇÃO MOBILE",
+			"shortName": "PM"
+		},
+		{
+			"name": "TRABALHO DE CONCLUSÃO DE CURSO II",
+			"shortName": "TCC 2"
+		},
+		{
+			"name": "TÓPICOS AVANÇADOS EM REDES",
+			"shortName": "TAR"
+		},
+		{
+			"name": "ECONOMIA INDUSTRIAL",
+			"shortName": "EI"
+		},
+		{
+			"name": "PRINCIPIOS DE ADMINISTRAÇÃO",
+			"shortName": "PDM"
+		},
+		{
+			"name": "PLANEJAMENTO E PROJETOS INDUSTRIAIS",
+			"shortName": "PPI"
+		},
+		{
+			"name": "GESTAO DE PROJETOS",
+			"shortName": "GP"	
+		},
+		{
+			"name": "TECNOLOGIA DE BEBIDAS E ÓLEOS",
+			"shortName": "TBO"
+		},
+		{
+			"name": "METODOLOGIA CIENTÍFICA",
+			"shortName": "MC"
+		},
+		{
+			"name": "GESTÃO AMBIENTAL E TRATAMENTO DE RESÍDUOS",
+			"shortName": "GATR"
+		},
+		{
+			"name": "COMUNICAÇÃO EMPRESARIAL",
+			"shortName": "CE"
+		},
+		{
+			"name": "REFRIGERAÇÃO",
+			"shortName": "RFG"
+		},
+		{
+			"name": "ANÁLISE SENSORIAL",
+			"shortName": "AS"
+		},
+		{
+			"name": "TECNOLOGIA DE FRUTAS E HORTALIÇAS, PRODUTOS AÇUCARADOS E PANIFICAÇÃO",
+			"shortName": "TFHPAP"
+		},
+		{
+			"name": "DESENVOLVIMENTO DE PRODUTOS",
+			"shortName": "DDP"
+		},
+		{
+			"name": "ENGENHARIA BIOQUÍMICA",
+			"shortName": "ENGB"
+		},
+		{
+			"name": "OPERAÇÕES UNITÁRIAS II",
+			"shortName": "OP 2"
+		},
+		{
+			"name": "OPERAÇÕES UNITÁRIAS I",
+			"shortName": "OP 1"
+		},
+		{
+			"name": "INSTRUMENTAÇÃO E CONTROLE DE PROCESSOS",
+			"shortName": "ICP"
+		},
+		{
+			"name": "TECNOLOGIA DE LEITE E CARNES",
+			"shortName": "TLC"
+		},
+		{
+			"name": "EMBALAGENS PARA ALIMENTOS",
+			"shortName": "EPA"
+		},
+		{
+			"name": "GESTÃO DA QUALIDADE E SEGURANÇA DOS ALIMENTOS",
+			"shortName": "GDSA"
+		},
+		{
+			"name": "BIOQUÍMICA DOS ALIMENTOS",
+			"shortName": "BDA"
+		},
+		{
+			"name": "ELETROTÉCNICA E INSTALAÇÕES ELÉTRICAS",
+			"shortName": "ETIA"
+		},
+		{
+			"name": "INSTALAÇÕES INDUSTRIAIS",
+			"shortName": "II"
+		},
+		{
+			"name": "NUTRIÇÃO E TOXICOLOGIA",
+			"shortName": "NT"
+		},
+		{
+			"name": "QUÍMICA DOS ALIMENTOS II",
+			"shortName": "QA 2"
+		},
+		{
+			"name": "QUÍMICA DOS ALIMENTOS I",
+			"shortName": "QA 1"
+		},
+		{
+			"name": "HIGIENE E SANITIZAÇÃO DE ALIMENTOS",
+			"shortName": "HSA"
+		},
+		{
+			"name": "MICROBIOLOGIA DOS ALIMENTOS",
+			"shortName": "MDA"
+		},
+		{
+			"name": "FUNDAMENTOS DE TECNOLOGIA DOS ALIMENTOS",
+			"shortName": "FTA"
+		},
+		{
+			"name": "ESTATÍSTICA APLICADA",
+			"shortName": "EPL"
+		},
+		{
+			"name": "CÁLCULO DIFERENCIAL E INTEGRAL III",
+			"shortName": "CDF 3"
+		},
+		{
+			"name": "TECNOLOGIA E RESISTÊNCIA DOS MATERIAIS",
+			"shortName": "TRM"
+		},
+		{
+			"name": "TERMODINÂMICA",
+			"shortName": "TMD"
+		},
+		{
+			"name": "QUÍMICA ANALÍTICA",
+			"shortName": "QMA"
+		},
+		{
+			"name": "QUÍMICA ORGÂNICA",
+			"shortName": "QMO"
+		},
+		{
+			"name": "MICROBIOLOGIA GERAL",
+			"shortName": "MBG"
+		},
+		{
+			"name": "FÍSICO-QUÍMICA",
+			"shortName": "FQ"
+		},
+		{
+			"name": "INFORMÁTICA APLICADA",
+			"shortName": "IAP"
+		},
+		{
+			"name": "INTRODUÇÃO À ENGENHARIA DE ALIMENTOS",
+			"shortName": "IENGA"
+		},
+		{
+			"name": "TOPICOS ESPECIAIS DE ENGENHARIA",
+			"shortName": "TEE"
+		},
+		{
+			"name": "VIBRAÇÕES MECÂNICAS ",
+			"shortName": "VM"
+		},
+		{
+			"name": "SISTEMAS SUPERVISÓRIOS",
+			"shortName": "SS"
+		},
+		{
+			"name": "SISTEMAS TÉRMICOS",
+			"shortName": "ST"
+		},
+		{
+			"name": "PROCESSOS METALÚRGICOS",
+			"shortName": "PMT"
+		},
+		{
+			"name": "SISTEMAS DE CONTROLE DISCRETO",
+			"shortName": "SCD"
+		},
+		{
+			"name": "GESTÃO DE PROJETOS NA ENGENHARIA DE CONTROLE E AUTOMAÇÃO",
+			"shortName": "GPECA"
+		},
+		{
+			"name": "METODOLOGIA DO TRABALHO CIENTÍFICO",
+			"shortName": "MTDC"
+		},
+		{
+			"name":"MANUFATURA INTEGRADA POR COMPUTADOR",
+			"shortName": "MIC"
+		},
+		{
+			"name": "CONTROLE E SERVOMECANISMOS",
+			"shortName": "CESM"
+		},
+		{
+			"name": "REDES INDUSTRIAIS",
+			"shortName": "RI"
+		},
+		{
+			"name": "INSTRUMENTAÇÃO INDUSTRIAL",
+			"shortName": "IID"
+		},
+		{
+			"name": "DIREITO E LEGISLAÇÃO",
+			"shortName": "DEL"
+		},
+		{
+			"name": "PROCESSO DE CONFORMAÇÃO MECÂNICA",
+			"shortName": "PCM"
+		},
+		{
+			"name": "ADMINISTRAÇÃO DA PRODUÇÃO",
+			"shortName": "ADMP"
+		},
+		{
+			"name": "MODELAGEM DE SISTEMAS DINÂMICOS",
+			"shortName": "MDSD"
+		},
+		{
+			"name": "ROBÓTICA",
+			"shortName": "ROB"
+		},
+		{
+			"name": "ACIONAMENTOS ELÉTRICOS",
+			"shortName": "ACE"
+		},
+		{
+			"name": "AÇÕES ASSISTIVAS E INCLUSÃO SOCIAL",
+			"shortName": "ACSIN"
+		},
+		{
+			"name": "CAM",
+			"shortName": "CAM"
+		},
+		{
+			"name": "PROCESSOS DE FABRICAÇÃO",
+			"shortName": "PCF"
+		},
+		{
+			"name": "FERRAMENTAS DA QUALIDADE",
+			"shortName": "FDQ"
+		},
+		{
+			"name": "SISTEMAS MICROPROCESSADOS",
+			"shortName": "SMP"
+		},
+		{
+			"name": "CONTROLADORES PROGRAMÁVEIS",
+			"shortName": "CLP"
+		},
+		{
+			"name": "AMBIENTE DE SIMULAÇÃO",
+			"shortName": "ADS"
+		},
+		{
+			"name": "CNC",
+			"shortName": "CNC"
+		},
+		{
+			"name": "COMUNICAÇÃO EMPRESARIAL",
+			"shortName": "CEP"
+		},
+		{
+			"name": "MANUTENÇÃO MECÂNICA",
+			"shortName": "MM"
+		},
+		{
+			"name": "PRODUÇÃO DE CONJUNTOS MECÂNICOS",
+			"shortName": "PDCM"
+		},
+		{
+			"name": "AUTOMAÇÃO, PNEUMÁTICA E HIDRAÚLICA",
+			"shortName": "APEH"
+		},
+		{
+			"name": "ELEMENTOS DE MÁQUINAS",
+			"shortName": "EDM"
+		},
+		{
+			"name": "PROGRAMAÇÃO VISUAL",
+			"shortName": "PV"
+		},
+		{
+			"name": "OPERAÇÕES DE USINAGEM E SOLDAGEM",
+			"shortName": "OUS"
+		},
+		{
+			"name": "HIGIENE E SEGURANÇA DO TRABALHO",
+			"shortName": "HST"
+		},
+		{
+			"name": "ALGORITMOS E PROGRAMAÇÃO",
+			"shortName": "ALGP"
+		},
+		{
+			"name": "DESENHO TÉCNICO AVANÇADO",
+			"shortName": "DTA"
+		},
+		{
+			"name": "TECNOLOGIA DE MÁQUINAS E FERRAMENTAS",
+			"shortName": "TMEF"
+		},
+		{
+			"name": "METROLOGIA",
+			"shortName": "MT"
+		},
+		{
+			"name": "CIRCUITOS ELÉTRICOS",
+			"shortName": "CEL"
+		},
+		{
+			"name": "INTRODUÇÃO À ENGENHARIA DE CONTROLE E AUTOMAÇÃO",
+			"shortName": "ITENA"
+		},
+		{
+			"name": "TEORIA GERAL DA ADMINISTRAÇÃO",
+			"shortName": "TGAM"
+		},
+		{
+			"name": "CONTABILIDADE PARA ADMINISTRADORES",
+			"shortName": "CTADM"
+		},
+		{
+			"name": "ÉTICA ORGANIZACIONAL E PROFISSIONAL",
+			"shortName": "EOP"
+		},
+		{
+			"name": "MÉTODOS QUANTITATIVOS",
+			"shortName": "MQ"
+		},
+		{
+			"name": "INTRODUÇÃO À COMPUTAÇÃO",
+			"shortName": "IAC"
+		},
+		{
+			"name" : "METODOLOGIA DE PESQUISA CIENTÍFICA",
+			"shortName": "MPC"
+		},
+		{
+			"name": "PROCESSO ADMINISTRATIVO",
+			"shortName": "PADM"
+		},
+		{
+			"name": "DESENVOLVIMENTO INTERPESSOAL",
+			"shortName": "DI"
+		},
+		{
+			"name": "INTRODUÇÃO À MARKETING",
+			"shortName": "INM"
+		},
+		{
+			"name": "DIREITO APLICADO À EMPRESA",
+			"shortName": "DAE"
+		},
+		{
+			"name": "RESPONSABILIDADE SOCIAL E AMBIENTAL DAS EMPRESAS",
+			"shortName": "RSAE"
+		},
+		{
+			"name": "ESTATÍSTICA",
+			"shortName": "EST"
+		},
+		{
+			"name":"ESTRUTURAS ORGANIZACIONAIS",
+			"shortName": "EO"
+		},
+		{
+			"name": "GESTÃO DE PRODUÇÃO E OPERAÇÕES",
+			"shortName": "GDPOP"
+		},
+		{
+			"name":"INTRODUÇÃO À ECONOMIA",
+			"shortName": "IAE"
+		},
+		{
+			"name": "LEGISLAÇÃO E PLANEJAMENTO TRIBUTÁRIO",
+			"shortName": "LEPT"
+		},
+		{
+			"name": "ESTATÍSTICA APLICADA À GESTÃO",
+			"shortName": "EAPG"
+		},
+		{
+			"name": "PROJETO INTERDISCIPLINAR I",
+			"shortName": "PINT 1"
+		},
+		{
+			"name": "GESTÃO MERCADOLÓGICA",
+			"shortName": "GM"
+		},
+		{
+			"name": "RECURSOS MATERIAIS E PATRIMONIAIS",
+			"shortName": "RMP"
+		},
+		{
+			"name": "MACRO E MICROECONOMIA",
+			"shortName": "MEM"
+		},
+		{
+			"name": "ANÁLISE CONTÁBIL E FINANCEIRA",
+			"shortName": "ACF"
+		},
+		{
+			"name": "MATEMÁTICA FINANCEIRA",
+			"shortName": "MF"
+		},
+		{
+			"name": "GESTÃO DE PESSOAS",
+			"shortName": "GPS"
+		},
+		{
+			"name": "GESTÃO DA CADEIA DE SUPRIMENTOS",
+			"shortName": "GCSP"
+		},
+		{
+			"name": "PESQUISA OPERACIONAL",
+			"shortName": "POP"
+		},
+		{
+			"name": "GESTÃO FINANCEIRA",
+			"shortName": "GF"
+		},
+		{
+			"name": "MODELOS DE ANÁLISE DE DECISÕES",
+			"shortName": "MAD"
+		},
+		{
+			"name": "CIDADANIA E INCLUSÃO",
+			"shortName": "CEI"
+		},
+		{
+			"name": "MODELOS DE GESTÃO E LIDERANÇA",
+			"shortName": "MGL"
+		},
+		{
+			"name": "GESTÃO DA QUALIDADE E PRODUTIVIDADE",
+			"shortName": "GQP"
+		},
+		{
+			"name": "ADMINISTRAÇÃO DE SISTEMAS DE INFORMAÇÃO",
+			"shortName": "ADSI"
+		},
+		{
+			"name": "GESTÃO ESTRATÉGICA DE CUSTOS",
+			"shortName": "GESC"
+		},
+		{
+			"name": "PROJETO INTERDISCIPLINAR II",
+			"shortName": "PINT 2"
+		},
+		{
+			"name": " GESTÃO DO CONHECIMENTO E INTELIGÊNCIA COMPETITIVA",
+			"shortName": "GCIC"
+		},
+		{
+			"name": "ESTRATÉGIA COMPETITIVA E CORPORATIVA",
+			"shortName": "ECC"
+		},
+		{
+			"name": "EMPREENDEDORISMO E PLANO DE NEGÓCIOS",
+			"shortName": "EPN"
+		},
+		{
+			"name":"FERRAMENTAS DE GESTÃO INTEGRADA",
+			"shortName": "FGI"
+		},
+		{
+			"name": "VIABILIDADE ECONOMICO FINANCEIRA DE NEGÓCIOS",
+			"shortName": "VEFN"
+		},
+		{
+			"name": "ESTUDO DAS ORGANIZAÇÕES E SUAS CULTURAS",
+			"shortName": "EOSC"
+		},
+		{
+			"name": "ESTRATÉGIA E SIMULAÇÃO EMPRESARIAL",
+			"shortName": "ESE"
+		},
+		{
+			"name": "GESTÃO DO RELACIONAMENTO PÚBLICO PRIVADO",
+			"shortName": "GRPP"
+		},
+		{
+			"name": "TÓPICOS AVANÇADOS DE ADMINISTRAÇÃO",
+			"shortName": "TAADM"
+		},
+		{
+			"name": "TÓPICOS AVANÇADOS DE GESTÃO DE PROJETOS",
+			"shortName": "TAGP"
+		}
+	]
 }
