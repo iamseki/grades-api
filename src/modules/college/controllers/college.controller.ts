@@ -1,4 +1,5 @@
-import { Body, Controller, Get, HttpCode,Param,Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode,Param,Post, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 import { CreateCollegeDTO } from '../dtos/create-college.dto';
 import { CreateCoursesDTO } from '../dtos/create-courses.dto';
 import { College } from '../entities/college.entity';
@@ -25,12 +26,14 @@ export class CollegeController {
     return courses;
   }
 
+  @UseGuards(JwtAuthGuard)
   @HttpCode(201)
   @Post()
   async create(@Body() createCollegeDTO: CreateCollegeDTO):Promise<void> {
     await this.collegeService.create(createCollegeDTO);
   }
 
+  @UseGuards(JwtAuthGuard)
   @HttpCode(201)
   @Post('courses')
   async insertCourses(@Body() createCoursesDTO: CreateCoursesDTO):Promise<void> {

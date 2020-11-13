@@ -35,6 +35,5 @@ const config: ConnectionOptions = {
 
 // If you need to debug typeorm cli you can do it here
 // console.log(config.migrations)
-console.log(config.entities);
 
 export = config;
