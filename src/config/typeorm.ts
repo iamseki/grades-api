@@ -25,7 +25,7 @@ const config: ConnectionOptions = {
   // Allow both start:prod and start:dev to use migrations
   // __dirname is either dist or src folder, meaning either
   // the compiled js in prod or the ts in dev.
-  migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
+  migrations: ['src/database/migrations/**/*{.ts,.js}'],
   cli: {
     // Location of migration should be inside src folder
     // to be compiled into dist/ folder.
@@ -34,6 +34,6 @@ const config: ConnectionOptions = {
 };
 
 // If you need to debug typeorm cli you can do it here
-// console.log(config.migrations)
+//console.log(config.migrations)
 
 export = config;
