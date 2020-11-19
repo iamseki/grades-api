@@ -3,7 +3,7 @@ import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 import { CreateCollegeDTO } from '../dtos/create-college.dto';
 import { CreateCoursesDTO } from '../dtos/create-courses.dto';
 import { College } from '../entities/college.entity';
-import { Course } from '../entities/course.entity';
+import { CourseToSubject } from '../entities/courseToSubject.entity';
 import { CollegeService } from '../services/college.service';
 import { CourseService } from '../services/course.service';
 
@@ -21,7 +21,7 @@ export class CollegeController {
   }
 
   @Get(":id")
-  async read(@Param('id') id: string): Promise<Course[]>{
+  async read(@Param('id') id: string): Promise<CourseToSubject[]>{
     const courses = await this.collegeService.read(id);
     return courses;
   }

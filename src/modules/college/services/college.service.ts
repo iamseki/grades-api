@@ -5,6 +5,7 @@ import { Country } from '../../locale/entities/country.entity';
 import { CreateCollegeDTO } from '../dtos/create-college.dto';
 import { College } from '../entities/college.entity';
 import { Course } from '../entities/course.entity';
+import { CourseToSubject } from '../entities/courseToSubject.entity';
 
 @Injectable()
 export class CollegeService {
@@ -13,19 +14,37 @@ export class CollegeService {
     private readonly collegeRepository: Repository<College>,
     @InjectRepository(Country)
     private readonly countryRepository: Repository<Country>,
+    @InjectRepository(CourseToSubject)
+    private readonly courseSubjectsRepository: Repository<CourseToSubject>,
     @InjectRepository(Course)
     private readonly courseRepository: Repository<Course>
   ){}
 
-  public async read(uuid: string):Promise<Course[]> {
-   // const courses = await this.courseRepository.find({ where: { collegeId: uuid }, relations: ['subjects'],select:['name','shortName']})
+  public async read(uuid: string):Promise<CourseToSubject[]> {
+  // const courses = await this.courseSubjectsRepository.find({where: {collegeId: uuid}})
+
+//const courses = await this.courseSubjectsRepository.find();
+
+const courses = await this.courseSubjectsRepository.createQueryBuilder('cs')
+.leftJoinAndSelect('cs.courses', 'courses')
+.getMany();
+
+    const test = await this.courseRepository.createQueryBuilder('co')
+    .leftJoinAndSelect('co.courseToSubjects','cs')
+    .leftJoinAndSelect('cs.subjects', 'subjects')
+    .where({collegeId: uuid})
+    //.select(['co.name', 'co.shortName', 'cs.subjects.name', 'cs.subjects.shortName'])
+    .getMany()
+
+
+  /*  const coursesT = await this.courseRepository.find({ where: { collegeId: uuid }, relations: ['subjects'],select:['name','shortName']})
 
     const courses = await this.courseRepository.createQueryBuilder('co')
-    .leftJoinAndSelect('co.subjects', 'subject')
-    .where({ collegeId: uuid })
-    .select(['co.name', 'co.shortName', 'subject.name', 'subject.shortName'])
-    .getMany()
-    return courses;
+    .leftJoinAndSelect('co.courseToSubjects', 'cs')
+    //.where({ collegeId: uuid })
+    //.select(['co.name', 'co.shortName', 'subject.name', 'subject.shortName'])
+    .getMany()*/
+    return courses; 
   }
 
   public async list(): Promise<College[]> {
