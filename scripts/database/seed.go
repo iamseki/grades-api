@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 	"sync"
 
 	_ "github.com/lib/pq"
@@ -217,12 +218,19 @@ func (s *seed) executeQuery(query string) {
 }
 
 func readFileInDatabaseFolder(filename string) []byte {
-	mainPath := os.Getenv("APP_DIR")
-	/*if err != nil {
-		log.Fatal(err)
-	}*/
+	dir, _ := os.Getwd()
 
-	file, err := ioutil.ReadFile(mainPath + "scripts/database/" + filename)
+	var path string
+	if strings.Contains(dir, "scripts") {
+		path = "database/" + filename
+	} else {
+		mainPath := os.Getenv("APP_DIR")
+		path = mainPath + "scripts/database/" + filename
+	}
+
+	log.Println(path)
+	file, err := ioutil.ReadFile(path)
+
 	if err != nil {
 		log.Fatal(err)
 	}
