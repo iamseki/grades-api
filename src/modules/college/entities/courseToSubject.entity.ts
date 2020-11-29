@@ -5,17 +5,17 @@ import { Subject } from './subject.entity';
 @Entity('courses_subjects')
 export class CourseToSubject {
   @PrimaryGeneratedColumn('uuid')
-  coursesId: string;
+  courseId: string;
 
   @PrimaryGeneratedColumn('uuid')
-  subjectsId: string;
+  subjectId: string;
 
   @Column()
-  semester: string;
+  semester: number;
 
   @ManyToOne(() => Course, course => course.courseToSubjects)
-  courses: Course;
+  course: Course;
 
   @ManyToOne(() => Subject, subject => subject.courseToSubjects)
-  subjects: Subject;
+  subject: Subject;
 }

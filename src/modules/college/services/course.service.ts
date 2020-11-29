@@ -22,6 +22,10 @@ export class CourseService {
     if(!college) throw new HttpException('College provided doesn\'t exist', HttpStatus.NOT_FOUND)
     
     const { name , shortName } = createCoursesDto
+
+    const courseExists = await this.courseRepository.findOne({where: { name, shortName, collegeId }})
+    if(courseExists) throw new HttpException('Course already registered', HttpStatus.CONFLICT)
+    
     const course = new Course();
 
     course.collegeId = collegeId;
