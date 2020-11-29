@@ -12,9 +12,8 @@ export class CreateCoursesDTO {
   shortName: string;
 
   @ValidateNested({ each: true })
-  @IsArray()
   @Type(() => SubjectDTO)
-  subjects: SubjectDTO[];
+  subjects?: SubjectDTO[];
 }
 
 class SubjectDTO {
