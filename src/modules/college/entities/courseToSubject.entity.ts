@@ -13,9 +13,15 @@ export class CourseToSubject {
   @Column()
   semester: number;
 
-  @ManyToOne(() => Course, course => course.courseToSubjects)
+  @ManyToOne(
+    () => Course,
+    course => course.courseToSubjects,
+  )
   course: Course;
 
-  @ManyToOne(() => Subject, subject => subject.courseToSubjects)
+  @ManyToOne(
+    () => Subject,
+    subject => subject.courseToSubjects,
+  )
   subject: Subject;
 }

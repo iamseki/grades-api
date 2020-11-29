@@ -12,6 +12,6 @@ import { CourseToSubject } from './entities/courseToSubject.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([College, Course, Subject, Country, CourseToSubject])],
   providers: [CollegeService, CourseService],
-  controllers: [CollegeController]
+  controllers: [CollegeController],
 })
 export class CollegeModule {}

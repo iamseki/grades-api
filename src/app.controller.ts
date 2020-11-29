@@ -9,12 +9,12 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   async login(@Request() req) {
-    const { username, password } = req.user; 
+    const { username, password } = req.user;
     return this.authService.login({ username, password });
   }
 
   @Get('hc')
   healthCheck() {
-    return { health: "ok"}
+    return { health: 'ok' };
   }
 }

@@ -19,6 +19,9 @@ export class Course {
   @Column()
   shortName: string;
 
-  @OneToMany(() => CourseToSubject, courseToSubject => courseToSubject.course)
-  courseToSubjects ?: CourseToSubject[];
+  @OneToMany(
+    () => CourseToSubject,
+    courseToSubject => courseToSubject.course,
+  )
+  courseToSubjects?: CourseToSubject[];
 }

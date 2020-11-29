@@ -12,20 +12,22 @@ export class CourseService {
     private readonly collegeRepository: Repository<College>,
     @InjectRepository(Course)
     private readonly courseRepository: Repository<Course>,
-  ){}
+  ) {}
 
-  public async create( createCoursesDto : CreateCoursesDTO): Promise<Course>{
+  public async create(createCoursesDto: CreateCoursesDTO): Promise<Course> {
     const { collegeId } = createCoursesDto;
 
     const college = await this.collegeRepository.findOne(collegeId);
 
-    if(!college) throw new HttpException('College provided doesn\'t exist', HttpStatus.NOT_FOUND)
-    
-    const { name , shortName } = createCoursesDto
+    if (!college) throw new HttpException("College provided doesn't exist", HttpStatus.NOT_FOUND);
 
-    const courseExists = await this.courseRepository.findOne({where: { name, shortName, collegeId }})
-    if(courseExists) throw new HttpException('Course already registered', HttpStatus.CONFLICT)
-    
+    const { name, shortName } = createCoursesDto;
+
+    const courseExists = await this.courseRepository.findOne({
+      where: { name, shortName, collegeId },
+    });
+    if (courseExists) throw new HttpException('Course already registered', HttpStatus.CONFLICT);
+
     const course = new Course();
 
     course.collegeId = collegeId;

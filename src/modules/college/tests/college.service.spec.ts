@@ -24,12 +24,12 @@ describe('College Service', () => {
         },
         {
           provide: getRepositoryToken(Country),
-          useValue: {}
+          useValue: {},
         },
         {
           provide: getRepositoryToken(Course),
-          useValue: {}
-        }
+          useValue: {},
+        },
       ],
     }).compile();
 
@@ -37,11 +37,13 @@ describe('College Service', () => {
   });
 
   it('It should not be able to create a college without a country', async () => {
-    await expect(collegeService.create({
-      name: "Testing",
-      shortName: "TS",
-      gradesAverage: 5,
-      gradesSystem: "BR",
-    })).rejects.toBeInstanceOf(HttpException);
+    await expect(
+      collegeService.create({
+        name: 'Testing',
+        shortName: 'TS',
+        gradesAverage: 5,
+        gradesSystem: 'BR',
+      }),
+    ).rejects.toBeInstanceOf(HttpException);
   });
 });

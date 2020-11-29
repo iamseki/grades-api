@@ -12,7 +12,7 @@ export class StateService {
     private readonly countriesRepository: Repository<Country>,
     @InjectRepository(State)
     private readonly statesRepository: Repository<State>,
-  ) { }
+  ) {}
 
   public async createMany({
     countryName,
@@ -25,7 +25,7 @@ export class StateService {
         'Some country information should be provided',
         HttpStatus.BAD_REQUEST,
       );
-    // country must exist  
+    // country must exist
     const country = await this.findCountry(countryName, countryId, countryAbbreviation);
 
     const statesArr: State[] = [];
@@ -61,7 +61,7 @@ export class StateService {
       where: [{ name }, { abbreviation }, { id }],
     });
 
-    if (!country) throw new HttpException('Country provided doesn\'t exist', HttpStatus.NOT_FOUND)
+    if (!country) throw new HttpException("Country provided doesn't exist", HttpStatus.NOT_FOUND);
 
     return country;
   }

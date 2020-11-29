@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode,Param,Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Param, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 import { CollegeInfoDTO } from '../dtos/college-info.dto';
 import { CreateCollegeDTO } from '../dtos/create-college.dto';
@@ -11,17 +11,17 @@ import { CourseService } from '../services/course.service';
 export class CollegeController {
   constructor(
     private readonly collegeService: CollegeService,
-    private readonly courseService: CourseService
-    ) {}
+    private readonly courseService: CourseService,
+  ) {}
 
   @Get()
-  async list(): Promise<College[]>{
+  async list(): Promise<College[]> {
     const colleges = await this.collegeService.list();
     return colleges;
   }
 
-  @Get(":id")
-  async read(@Param('id') id: string): Promise<CollegeInfoDTO>{
+  @Get(':id')
+  async read(@Param('id') id: string): Promise<CollegeInfoDTO> {
     const courses = await this.collegeService.read(id);
     return courses;
   }
@@ -29,14 +29,14 @@ export class CollegeController {
   @UseGuards(JwtAuthGuard)
   @HttpCode(201)
   @Post()
-  async create(@Body() createCollegeDTO: CreateCollegeDTO):Promise<void> {
+  async create(@Body() createCollegeDTO: CreateCollegeDTO): Promise<void> {
     await this.collegeService.create(createCollegeDTO);
   }
 
   @UseGuards(JwtAuthGuard)
   @HttpCode(201)
   @Post('courses')
-  async insertCourses(@Body() createCoursesDTO: CreateCoursesDTO):Promise<void> {
+  async insertCourses(@Body() createCoursesDTO: CreateCoursesDTO): Promise<void> {
     await this.courseService.create(createCoursesDTO);
   }
 }
