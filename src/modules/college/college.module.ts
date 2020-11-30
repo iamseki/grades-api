@@ -8,10 +8,13 @@ import { Country } from '../locale/entities/country.entity';
 import { CollegeService } from './services/college.service';
 import { CourseService } from './services/course.service';
 import { CourseToSubject } from './entities/courseToSubject.entity';
+import { SubjectController } from './controllers/subject.controller';
+import { CourseController } from './controllers/course.controller';
+import { SubjectService } from './services/subject.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([College, Course, Subject, Country, CourseToSubject])],
-  providers: [CollegeService, CourseService],
-  controllers: [CollegeController],
+  providers: [CollegeService, CourseService, SubjectService],
+  controllers: [CollegeController, SubjectController, CourseController],
 })
-export class CollegeModule {}
+export class CollegeModule { }

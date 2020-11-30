@@ -16,7 +16,7 @@ export class CollegeService {
     private readonly countryRepository: Repository<Country>,
     @InjectRepository(CourseToSubject)
     private readonly courseToSubjectsRepository: Repository<CourseToSubject>,
-  ) {}
+  ) { }
 
   public async read(collegeId: string): Promise<CollegeInfoDTO> {
     const result = await this.courseToSubjectsRepository
@@ -94,6 +94,9 @@ export class CollegeService {
       );
 
     if (countryId) {
+      const collegeExists = await this.collegeRepository.findOne({ where: { countryId, name, shortName }, select: ['id'] });
+      if (collegeExists) throw new HttpException("College already exists", HttpStatus.CONFLICT);
+
       const college = await this.collegeRepository.save({
         countryId,
         name,
@@ -110,6 +113,8 @@ export class CollegeService {
     });
     if (!country) throw new HttpException("Country provided doesn't exist", HttpStatus.NOT_FOUND);
 
+    const collegeExists = await this.collegeRepository.findOne({ where: { countryId: country.id, name, shortName }, select: ['id'] });
+    if (collegeExists) throw new HttpException("College already exists", HttpStatus.CONFLICT);
     const college = await this.collegeRepository.save({
       countryId: country.id,
       name,

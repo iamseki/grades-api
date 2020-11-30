@@ -17,11 +17,11 @@ export class CourseToSubject {
     () => Course,
     course => course.courseToSubjects,
   )
-  course: Course;
+  course?: Course;
 
   @ManyToOne(
     () => Subject,
     subject => subject.courseToSubjects,
   )
-  subject: Subject;
+  subject?: Subject;
 }

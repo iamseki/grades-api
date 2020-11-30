@@ -14,6 +14,11 @@ export class CourseService {
     private readonly courseRepository: Repository<Course>,
   ) {}
 
+  public async list(): Promise<Course[]> {
+    const courses = await this.courseRepository.find();
+    return courses;
+  }
+
   public async create(createCoursesDto: CreateCoursesDTO): Promise<Course> {
     const { collegeId } = createCoursesDto;
 

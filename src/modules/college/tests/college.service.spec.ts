@@ -5,6 +5,7 @@ import { CollegeService } from '../services/college.service';
 import { College } from '../entities/college.entity';
 import { Country } from '../../locale/entities/country.entity';
 import { Course } from '../entities/course.entity';
+import { CourseToSubject } from '../entities/courseToSubject.entity';
 
 describe('College Service', () => {
   let collegeService: CollegeService;
@@ -30,6 +31,10 @@ describe('College Service', () => {
           provide: getRepositoryToken(Course),
           useValue: {},
         },
+        {
+          provide: getRepositoryToken(CourseToSubject),
+          useValue: {},
+        }
       ],
     }).compile();
 
