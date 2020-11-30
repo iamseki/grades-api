@@ -17,7 +17,7 @@ export class CreateSubjectsTable1603551698401 implements MigrationInterface {
             name: 'name',
             type: 'varchar',
             isNullable: false,
-            isUnique: true
+            isUnique: true,
           },
           {
             name: 'shortName',

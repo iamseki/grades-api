@@ -7,7 +7,7 @@ import * as ormconfig from './config/typeorm';
 import { AppController } from './app.controller';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(ormconfig), CollegeModule, LocaleModule,AuthModule],
-  controllers: [ AppController ]
+  imports: [TypeOrmModule.forRoot(ormconfig), CollegeModule, LocaleModule, AuthModule],
+  controllers: [AppController],
 })
 export class AppModule {}

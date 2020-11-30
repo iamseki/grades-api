@@ -23,6 +23,6 @@ The purpose of this folder is to expose the scripts related to infrastructure au
 > You'll need the go binary to execute this step but I promise that i'll try to keep [script binnary](./scripts) up to date. At scripts folder, just run:
 
 ```
- CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o ../api-scripts .
+ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o scripts .
 ```
 

@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsNotEmpty, ValidateNested } from 'class-validator';
+import { IsArray, IsNotEmpty, IsPositive, ValidateNested } from 'class-validator';
 
 export class CreateCoursesDTO {
   @IsNotEmpty()
@@ -12,9 +12,8 @@ export class CreateCoursesDTO {
   shortName: string;
 
   @ValidateNested({ each: true })
-  @IsArray()
   @Type(() => SubjectDTO)
-  subjects: SubjectDTO[];
+  subjects?: SubjectDTO[];
 }
 
 class SubjectDTO {
@@ -23,4 +22,8 @@ class SubjectDTO {
 
   @IsNotEmpty()
   shortName: string;
+
+  @IsNotEmpty()
+  @IsPositive()
+  semester: number;
 }

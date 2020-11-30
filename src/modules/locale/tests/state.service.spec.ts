@@ -8,21 +8,21 @@ import { Country } from '../entities/country.entity';
 describe('State Service', () => {
   let stateService: StateService;
   let findOne: jest.Mock;
-  
+
   beforeEach(async () => {
-    findOne= jest.fn();
+    findOne = jest.fn();
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         StateService,
         {
           provide: getRepositoryToken(State),
-          useValue: { },
+          useValue: {},
         },
         {
           provide: getRepositoryToken(Country),
-          useValue: { findOne }
-        }
+          useValue: { findOne },
+        },
       ],
     }).compile();
 
@@ -30,11 +30,14 @@ describe('State Service', () => {
   });
 
   it('It should not be able to create a state without a country', async () => {
-    await expect(stateService.createMany({
-        states: [{
-          abbreviation: 'BR',
-          name: 'Brazil'
-        }]
+    await expect(
+      stateService.createMany({
+        states: [
+          {
+            abbreviation: 'BR',
+            name: 'Brazil',
+          },
+        ],
       }),
     ).rejects.toBeInstanceOf(HttpException);
   });
