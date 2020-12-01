@@ -24,6 +24,7 @@ export class CollegeService {
       .innerJoinAndSelect('cs.subject', 's')
       .innerJoinAndSelect('cs.course', 'c', `c.collegeId = '${collegeId}'`)
       .select(['c.name', 'c.shortName', 's.name', 's.shortName', 'cs.semester'])
+      .orderBy('cs.semester')
       .getMany();
 
     const collegeInfo: CollegeInfoDTO = { courses: this.getCoursesInfo(result) };
