@@ -123,11 +123,19 @@
     {
 			"name": "SISTEMAS DIGITAIS E MICROCONTROLADORES",
 			"shortName": "SDM"
-    },
+	},
+	{
+		"name": "SISTEMAS DIGITAIS",
+		"shortName": "SD"
+},
     {
 			"name": "GESTÃO DE PROJETOS NA ENGENHARIA DE COMPUTAÇÃO",
 			"shortName": "GEC"
-    },
+	},
+	{
+		"name": "GESTÃO DE PROJETOS",
+		"shortName": "GDPO"
+},
     {
 			"name": "BANCO DE DADOS II",
 			"shortName": "BD 2"
@@ -169,7 +177,7 @@
 			"shortName": "GDQ"
     },
     {
-			"name": "COMUNICAÇÃO E MIDIAS DIGITAIS ",
+			"name": "COMUNICAÇÃO E MIDIAS DIGITAIS",
 			"shortName": "CMD"
     },
     {
@@ -185,7 +193,7 @@
 			"shortName": "AQC 1"
     },
     {
-			"name": "LINGUAGEM DE PROGRAMAÇÃO III ",
+			"name": "LINGUAGEM DE PROGRAMAÇÃO III",
 			"shortName": "LP 3"
     },
     {
@@ -197,7 +205,7 @@
 			"shortName": "QDS"
     },
     {
-			"name": "REDE DE COMPUTADORES ",
+			"name": "REDE DE COMPUTADORES",
 			"shortName": "RDC"
     },
     {
@@ -417,7 +425,7 @@
 			"shortName": "TEE"
 		},
 		{
-			"name": "VIBRAÇÕES MECÂNICAS ",
+			"name": "VIBRAÇÕES MECÂNICAS",
 			"shortName": "VM"
 		},
 		{
@@ -625,6 +633,10 @@
 			"shortName": "EO"
 		},
 		{
+			"name":"GESTÃO DE PROCESSOS ORGANIZACIONAIS",
+			"shortName": "GPO"
+		},
+		{
 			"name": "GESTÃO DE PRODUÇÃO E OPERAÇÕES",
 			"shortName": "GDPOP"
 		},
@@ -709,7 +721,7 @@
 			"shortName": "PINT 2"
 		},
 		{
-			"name": " GESTÃO DO CONHECIMENTO E INTELIGÊNCIA COMPETITIVA",
+			"name": "GESTÃO DO CONHECIMENTO E INTELIGÊNCIA COMPETITIVA",
 			"shortName": "GCIC"
 		},
 		{
