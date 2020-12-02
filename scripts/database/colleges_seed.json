@@ -1,0 +1,25 @@
+{
+  "colleges": [
+    {
+      "countryName":"Brazil",
+      "name": "Faculdade de Tecnologia Termomecanica",
+      "shortName": "FTT",
+      "gradesSystem": "BR",
+      "gradesAverage": 5
+    },
+    {
+      "countryName":"Brazil",
+      "name": "Pontifícia Universidade Católica de São Paulo",
+      "shortName": "PUC",
+      "gradesSystem": "BR",
+      "gradesAverage": 7
+    },
+    {
+      "countryName":"Brazil",
+      "name": "Fundação Educacional Inaciana",
+      "shortName": "FEI",
+      "gradesSystem": "BR",
+      "gradesAverage": 7
+    }
+  ]
+}

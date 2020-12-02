@@ -1,0 +1,24 @@
+{
+  "countries": [
+    {
+      "name":"Australia",
+      "abbreviation": "AU"
+    },
+    {
+      "name": "Argentina",
+      "abbreviation": "AR"
+    },
+    {
+      "name": "Brazil",
+      "abbreviation": "BR"
+    },
+    {
+      "name": "United States",
+      "abbreviation": "US"
+    },
+    {
+      "name": "Peru",
+      "abbreviation": "PE"
+    }
+  ]
+}

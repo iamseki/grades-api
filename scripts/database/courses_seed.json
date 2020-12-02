@@ -1,0 +1,20 @@
+{
+  "courses": [
+    {
+      "name": "Engenharia da Computação",
+      "shortName": "EC"
+    },
+    {
+      "name": "Engenharia de Alimentos",
+      "shortName": "EA"
+    },
+    {
+      "name": "Engenharia de Controle e Automação",
+      "shortName": "ECA"
+    },
+    {
+      "name": "Administração",
+      "shortName": "ADM"
+    }
+  ]
+}
