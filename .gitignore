@@ -5,7 +5,7 @@ node_modules
 env.sh
 env-prod.sh
 .env
-
+grades-pg.backup
 # Logs
 logs
 *.log

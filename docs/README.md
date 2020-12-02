@@ -8,6 +8,12 @@ docker container run -d -p 5433:5432 —name pg--volumes-from dbstorage -e POSTG
 
 To start up mongo database locally with docker: `docker run --name mongo -e MONGODB_DATABASE=grades -p 27017:27017 -d mongo`
 
+## Backup n Restore
+
+pg_dump grades-api -U postgres -h localhost -F c > backup_file
+pg_restore -h <ip remote server> -p <port remote server> -U postgres -F backup.backup
+
+> Or just use DBiever client !
 ## Modules
 
 - To create a new module: `nest g mo college`
